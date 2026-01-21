@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ООО «ПИК-Интегратор» | Автоматизация производства и энергосистем</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Базовые стили и сброс */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0d2b6e;
+            --secondary-blue: #1a3a8f;
+            --accent-blue: #4fc3f7;
+            --light-blue: #f1f5fd;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Стили для шапки */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(13, 43, 110, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(13, 43, 110, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(79, 195, 247, 0.3);
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-top: 3px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-blue);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        /* Герой-секция */
+        .hero {
+            padding: 6rem 0 5rem;
+            background: linear-gradient(135deg, rgba(241, 245, 253, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+            opacity: 0.1;
+        }
+
+        .hero:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -50px;
+            opacity: 0.08;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--medium-gray);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            padding: 1.2rem 2.8rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        /* Секция преимуществ */
+        .benefits {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.8rem;
+            color: var(--white);
+            font-size: 1.8rem;
+            box-shadow: 0 8px 20px rgba(13, 43, 110, 0.15);
+        }
+
+        .benefit-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .benefit-card p {
+            color: var(--medium-gray);
+            flex-grow: 1;
+        }
+
+        /* Секция услуг */
+        .services {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #e8effa 100%);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: var(--accent-blue);
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            font-weight: 400;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--accent-blue));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.8rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(79, 195, 247, 0.1);
+            border-radius: 16px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-blue);
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .simple-explanation {
+            background: rgba(241, 245, 253, 0.7);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .simple-explanation h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .simple-explanation h4:before {
+            content: "💡";
+        }
+
+        .tech-list {
+            margin-top: 1.5rem;
+        }
+
+        .tech-list p {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tech-list p:before {
+            content: "⚙️";
+        }
+
+        .tech-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .tech-list li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.8rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+
+        .tech-list li:before {
+            content: "✓";
+            color: var(--accent-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Секция "О компании" */
+        .about {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+
+        .company-details {
+            background: linear-gradient(135deg, var(--light-blue) 0%, #e8effa 100%);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .detail-item {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(13, 43, 110, 0.1);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+            color: var(--dark-gray);
+            font-size: 1rem;
+        }
+
+        .bank-details {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--accent-blue);
+        }
+
+        /* Секция контактов */
+        .contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact .section-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+        .contact-item i {
+            font-size: 2.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .contact-email {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .contact-email:hover {
+            color: var(--white);
+            border-bottom-color: var(--accent-blue);
+        }
+
+        .work-steps {
+            margin-top: 4rem;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-blue);
+            color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 0 auto 15px;
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+        }
+
+        /* Подвал */
+        footer {
+            background: #0a1f4d;
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .signature {
+            font-style: italic;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            nav ul {
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .benefits-grid, .services-grid, .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .service-card, .benefit-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка с навигацией -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div>
+                        <div class="logo-text">ООО «ПИК-Интегратор»</div>
+                        <div class="tagline">Интеллектуальная автоматизация производств</div>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#benefits">Преимущества</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#about">О компании</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Превращаем производство в умную экосистему</h1>
+                <p>Мы создаем интеллектуальные системы управления, которые экономят ресурсы, повышают безопасность и дают полный контроль над всем предприятием. От проектирования до запуска и поддержки.</p>
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-calendar-alt"></i> Запланировать консультацию
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Что вы получаете</h2>
+            <p class="section-subtitle">Конкретные выгоды от автоматизации вашего предприятия</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Снижение затрат</h3>
+                    <p>Автоматизация сокращает расходы на персонал, уменьшает потери энергии и сырья, предотвращает аварии</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Повышение надежности</h3>
+                    <p>Системы предупреждают о проблемах до их возникновения, защищают оборудование и персонал</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Полный контроль</h3>
+                    <p>Видите все процессы производства в реальном времени с любого устройства, принимайте обоснованные решения</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Готовые решения</h3>
+                    <p>Полный цикл: от проекта до запуска и обучения вашего персонала. Работаем "под ключ"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-subtitle">Мы делаем сложные технические системы простыми в управлении</p>
+            
+            <div class="services-grid">
+                <!-- Услуга 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Автоматизация производства</h3>
+                    <p>Создаем "мозг" для вашего завода — систему, которая управляет станками, линиями и всем технологическим процессом.</p>
+                    
+                    <div class="simple-explanation">
+                        <h4>Простыми словами:</h4>
+                        <p>Представьте, что вместо десятков людей, которые крутят вентили и нажимают кнопки, всем управляет одна умная система. Она следит за температурой, давлением, скоростью и сама принимает решения.</p>
+                    </div>
+                    
+                    <div class="tech-list">
+                        <p>Работаем с оборудованием:</p>
+                        <ul>
+                            <li>Siemens (все модели контроллеров)</li>
+                            <li>Yokogawa, ABB, Schneider Electric</li>
+                            <li>Российские системы БАЗИС и ПАС</li>
+                            <li>И другие ведущие производители</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Услуга 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Панели управления и мониторинга</h3>
+                    <p>Разрабатываем понятные интерфейсы, где на одном экране видно всё, что происходит на производстве.</p>
+                    
+                    <div class="simple-explanation">
+                        <h4>Простыми словами:</h4>
+                        <p>Как приборная панель в современном автомобиле, только для целого предприятия. Видите все показатели, графики, предупреждения. Можете управлять процессами с компьютера или даже телефона.</p>
+                    </div>
+                    
+                    <div class="tech-list">
+                        <p>Создаем системы визуализации:</p>
+                        <ul>
+                            <li>Цветные мнемосхемы и графики</li>
+                            <li>Мобильный доступ к данным</li>
+                            <li>Автоматические отчеты и аналитика</li>
+                            <li>Оповещения о проблемах</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Услуга 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Умная энергетика</h3>
+                    <p>Автоматизируем электроснабжение, учет энергии и управление энергосистемами.</p>
+                    
+                    <div class="simple-explanation">
+                        <h4>Простыми словами:</h4>
+                        <p>Система, которая знает, где и сколько электроэнергии потребляется, сама перераспределяет нагрузку, считает затраты и предупреждает о перегрузках. Экономит до 30% на электричестве.</p>
+                    </div>
+                    
+                    <div class="tech-list">
+                        <p>Решаем задачи:</p>
+                        <ul>
+                            <li>Точный учет электроэнергии</li>
+                            <li>Автоматическое управление сетями</li>
+                            <li>Предотвращение аварий и отключений</li>
+                            <li>Оптимизация энергопотребления</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Услуга 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Проектирование "под ключ"</h3>
+                    <p>От идеи до работающей системы. Все этапы — от чертежей до обучения ваших специалистов.</p>
+                    
+                    <div class="simple-explanation">
+                        <h4>Простыми словами:</h4>
+                        <p>Вы говорите, что хотите получить. Мы делаем проект, согласовываем с вами, закупаем оборудование, устанавливаем, настраиваем и обучаем ваш персонал. Вы получаете готовую работающую систему.</p>
+                    </div>
+                    
+                    <div class="tech-list">
+                        <p>Полный цикл работ:</p>
+                        <ul>
+                            <li>Техническое задание и проектирование</li>
+                            <li>Подбор и поставка оборудования</li>
+                            <li>Монтаж и программирование</li>
+                            <li>Пуск, наладка и обучение</li>
+                            <li>Гарантийное обслуживание</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О компании</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Мы делаем сложное простым</h2>
+                    <p>ООО «ПИК-Интегратор» — это команда инженеров, которые превращают сложные технические задачи в понятные и эффективные решения. Мы работаем с 2010 года и реализовали более 150 проектов автоматизации.</p>
+                    <p>Наша философия: автоматизация должна приносить реальную пользу — экономить деньги, повышать безопасность и делать управление производством удобным.</p>
+                    <p>Мы говорим с вами на понятном языке, без излишнего технического жаргона. Сначала понимаем ваши бизнес-цели, а потом предлагаем технические решения для их достижения.</p>
+                </div>
+                
+                <div class="company-details">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Реквизиты компании</h3>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Название:</span>
+                        <span class="detail-value">ООО «ПИК-Интегратор»</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Адрес:</span>
+                        <span class="detail-value">г. Набережные Челны, ул. Ахметшина, здание 123А, офис 211</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">ИНН / КПП:</span>
+                        <span class="detail-value">1650449525 / 1650041001</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">ОГРН:</span>
+                        <span class="detail-value">1251600056487</span>
+                    </div>
+                    
+                    <div class="bank-details">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Банковские реквизиты</h4>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">Банк:</span>
+                            <span class="detail-value">Альфа-Банк</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">Расчетный счет:</span>
+                            <span class="detail-value">40702810929140011465</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">БИК:</span>
+                            <span class="detail-value">042202824</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Готовы обсудить проект?</h2>
+            <p class="section-subtitle">Мы ответим на все вопросы, приедем на объект и предложим оптимальное решение</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Руководитель</h3>
+                    <p>Андрей Камалов</p>
+                    <p>Лично курирует каждый проект</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Телефон / WhatsApp</h3>
+                    <p>+7 (987) 422-25-87</p>
+                    <p>Звоните в любое время</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Электронная почта</h3>
+                    <p>
+                        <a href="mailto:andrey.kama@mail.ru" class="contact-email">
+                            andrey.kama@mail.ru
+                        </a>
+                    </p>
+                    <p>Отправьте ТЗ для расчета</p>
+                </div>
+            </div>
+            
+            <div class="work-steps">
+                <h3 style="text-align: center; margin-bottom: 1rem;">Как мы работаем?</h3>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Ваша заявка</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Выезд на объект</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Проект и смета</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Реализация</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-industry"></i> ООО «ПИК-Интегратор»
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Автоматизация производств и энергосистем<br>
+                <div class="signature">
+                    Директор: Камалов Андрей Альбертович
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простой скри
